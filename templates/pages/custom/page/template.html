@@ -1,0 +1,88 @@
+{{#partial "page"}}
+
+<link rel="stylesheet" href="style.css">
+
+<div class="hero-template">
+    <h5 class="hero-template__title">
+        hello, world
+    </h5>
+    <h1 class="hero-template__name">
+        I'm Juan Dela Cruz.
+    </h1>
+    <p class="hero-template__description">
+        | FRONT-END DEVELOPER | UI/UX DESIGNER |
+    </p>
+    <a class="hero-template__button" href="#about">
+        more about me
+    </a>
+</div>
+<div class="about" id="about">
+    <p class="about__title">
+        about
+    </p>
+    <h2 class="about__header">
+        Let me introduce myself.
+    </h2>
+    <img class="about__image" src="{{cdn 'img/template/profile-pic.jpg'}}" alt="profile picture">
+    <p class="city__content">
+        Lorem ipsum Exercitation culpa qui dolor consequat exercitation fugiat laborum ex ea eiusmod ad do aliqua occaecat nisi ad irure sunt id pariatur Duis laboris amet exercitation veniam labore consectetur ea id quis eiusmod.
+    </p>
+</div>
+<div class="contact">
+    <p class="contact__title">
+        contact
+    </p>
+    <h2 class="contact__header">
+        I'd Love To Hear From You.
+    </h2>
+    <p class="contact__content">
+        Lorem ipsum Do commodo in proident enim in dolor cupidatat adipisicing dolore officia nisi aliqua incididunt Ut veniam lorem ipsum Consectetur ut in in eu do.
+    </p>
+    <div class="contact__info">
+        <div class="contact__card">
+            <img class="contact__icon" src="{{cdn 'img/template/geo.png'}}" alt="contact icon">
+            <h5 class="contact__title">
+                Where to find me
+            </h5>
+            <p class="contact__card-content">
+                1600 Amphitheatre Parkway<br>
+                Mountain View, CA<br>
+                94043 US
+            </p>
+        </div>
+        <div class="contact__card">
+            <img class="contact__icon" src="{{cdn 'img/template/geo.png'}}" alt="contact icon">
+            <h5 class="contact__title">
+                EMAIL ME AT
+            </h5>
+            <p class="contact__card-content">
+                someone@kardswebsite.com<br>
+                info@kardswebsite.com<br>
+                testmail@mail.com
+            </p>
+        </div>
+        <div class="contact__card">
+            <img class="contact__icon" src="{{cdn 'img/template/geo.png'}}" alt="contact icon">
+            <h5 class="contact__title">
+                CALL ME AT
+            </h5>
+            <p class="contact__card-content">
+                Phone: (+63) 555 1212<br>
+                Mobile: (+63) 555 0100<br>
+                Fax: (+63) 555 0101
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+{{#each breadcrumbs}}
+<a href="http://localhost:3000/homework/?debug=bar">{{name}}</a>
+{{/each}}
+
+{{{page.content}}}
+
+{{/partial}}
+
+{{> layout/base}}

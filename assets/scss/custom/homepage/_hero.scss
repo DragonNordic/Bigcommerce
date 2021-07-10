@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,700;1,400&family=Playfair+Display:wght@400;700&display=swap');
+
+.hero {
+    margin-top: -20px;
+    text-align: center;
+    color: white;
+
+    &__promo {
+      width: 100%;
+      float: left;
+      background-color: #9dc4a8;
+      color: #fff;
+      font-size: 2.2vmin;
+      text-align: center;
+      margin: -40px 0 15% 0;
+      padding: 10px;
+    }
+
+    &__background {
+      background: url("https://i.imgur.com/mC0tTV0.jpg");
+      width: 100%;
+      height: 100%;
+      display: block;
+      margin: auto;
+      object-fit: cover;
+      object-position: 50% 50%;
+      max-height: 42.85714rem;
+      height: 56.25vw;
+      background-repeat: no-repeat;
+    }
+
+    &__wrapper {
+        width: 100%;
+        height: 600px;
+    }
+
+    &__top-button {
+      margin: 50px;
+      background-color: rgba(0,0,255,0);
+      border-radius: 2px;
+      border: 1px solid #fff;
+      color: #fff;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 12px;
+      padding: .8rem 3rem;
+      text-decoration: none;
+
+      @media (max-width: 355px) {
+        padding: .8rem 1.5rem;
+      }
+
+      &-margin {
+        @media (max-width: 430px) {
+          position: absolute;
+          margin: 5% 0 0 10%;
+        }
+      }
+
+      &:hover {
+        color: #fff;
+      }
+    }
+
+    &__text {
+      color: #fff;
+      font-family: "Playfair Display";
+      font-size: 52px;
+      line-height: 1.1em;
+      padding: 1.5rem 0;
+      margin: 5px;
+      width: 100%;
+
+      @media (max-width: 560px) {
+        font-size: 32px;
+      }
+
+      &-wrapper {
+        @media (max-width: 375px) {
+          max-width: 375px;
+          position: absolute;
+          margin: 10% 10%;
+        }
+      }
+    }
+
+    &__base-button {
+      position: relative;
+      text-decoration: none;
+      border-radius: 2px;
+      font-family: "Playfair Display";
+      font-weight: 600;
+      line-height: 1rem;
+      transition: all .15s ease;
+      text-transform: uppercase;
+      color: #fff;
+      background-color: #313130;
+      border: none;
+      margin: 15px;
+      padding: .8rem 3rem;
+
+      &-wrapper {
+        @media (max-width: 375px) {
+          position: absolute;
+          margin: 42% 3%;
+          width: 100%;
+        }
+      }
+
+      &:hover {
+        background: white;
+        color: black;
+      }
+    }
+}
+
+.maxWidth {
+    min-width: 170px;
+    min-width: 200px;
+    max-height: 250px;
+}
+
+.block__formatter {
+  margin: 10px;
+  text-align: center;
+  font-family: Arial-black Sans-Serif;
+  font-size: 14px;
+  display: inline-block;
+  max-width: 500px;
+  max-height: 500px;
+  border-radius: 15px;
+  border: 5px solid #7142ce;
+  color: #ffc641;
+
+  max-height: 320px;
+  max-width: 250px;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200&display=swap');
+
+.custom-widget {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+
+  &__header {
+    text-align: center;
+
+    &-text {
+      text-align: center;
+      font-size: 24px;
+      font-family: "Source Sans Pro", sans-serif;
+      font-weight: 400;
+      line-height: 2.25rem;
+      color: #34313f;
+    }
+  }
+
+  &__logo {
+    width: 90%;
+    padding-top: 50px;
+    margin-left: 75px;
+
+    &-image {
+      box-sizing: initial;
+      background-color: #fff;
+      border-style: none;
+      width: 580px;
+      height: 640px;
+    }
+  }
+
+  &__description {
+      max-height: 527px;
+      max-width: 527px;
+      text-align: left;
+
+
+    &-title {
+      font-size: 18px;
+      font-family: "Source Sans Pro", sans-serif;
+      font-weight: 400;
+      line-height: 2.25rem;
+      color: #34313f;
+    }
+
+    &-text {
+      font-size: 15px;
+      font-family: "Source Sans Pro", sans-serif;
+      font-weight: 200;
+      line-height: 1.75rem;
+      color: #34313f;
+    }
+
+    &-link {
+      color: #4b71fc;
+      font-size: 15px;
+      font-family: "Source Sans Pro", sans-serif;
+      font-weight: 400;
+      line-height: 1.75rem;
+      text-decoration: none;
+
+      &:hover {
+        color: #4b71fc;
+      }
+    }
+  }
+}

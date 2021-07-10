@@ -1,0 +1,71 @@
+.test {
+
+  background: blue;
+  color: black;
+  font-size: 30px;
+
+  &__description {
+    color: #fff;
+    font-size: 15px;
+  }
+
+  &__link {
+    font-size: 20px;
+    color: red;
+
+  }
+
+}
+
+.pop-up {
+  text-align: center;
+  position: absolute;
+  z-index: 10;
+  background-color: #7142ce;
+  border-radius: 15px;
+  width: 500px;
+  height: 400px;
+  margin-top: 100px;
+  margin-left: 30%;
+  margin-bottom: 30%;
+  display: none;
+
+  &__header {
+    margin-top: 10%;
+    font-size: 24px;
+    font-family: Arial-black, Sans-Serif;
+    color: white;
+  }
+
+  &__content {
+    font-size: 16px;
+    color: white;
+    font-family: Arial, Sans-Serif;
+    width: 240px;
+    margin: 0 0 20px 27%;
+  }
+
+  &__button {
+    border-radius: 16px;
+    background-color: #ff916c;
+    color: white;
+    font-size: 12px;
+    font-family: Arial-black, Sans-Serif;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    margin-bottom: 5px;
+  }
+
+  &__show {
+    border-radius: 16px;
+    background-color: #ff916c;
+    color: white;
+    font-size: 12px;
+    font-family: Arial-black, Sans-Serif;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    margin: 100px 0 20px 30%;
+  }
+}
+
+@import "homepage/homepage";

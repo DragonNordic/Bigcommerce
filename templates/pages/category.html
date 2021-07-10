@@ -1,0 +1,151 @@
+---
+category:
+    shop_by_price: true
+    products:
+        limit: {{theme_settings.categorypage_products_per_page}}
+---
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{inject "categoryId" category.id}}
+{{#partial "head"}}
+    {{#if pagination.category.previous}}
+        <link rel="prev" href="{{pagination.category.previous}}">
+    {{/if}}
+    {{#if pagination.category.next}}
+        <link rel="next" href="{{pagination.category.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "page"}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+{{#if category.image}}
+    {{> components/common/responsive-img
+        image=category.image
+        fallback_size=theme_settings.zoom_size
+        lazyload=theme_settings.lazyload_mode
+        class="category-header-image"
+    }}
+{{/if}}
+{{#unless theme_settings.hide_category_page_heading }}
+    <h1 class="featured-products__header category__header" style="position: absolute; margin: 70px 0 0 33%; width: 40%">{{category.name}}</h1>
+    {{{region name="category_below_header"}}}
+{{/unless}}
+{{{category.description}}}
+<div class="page">
+    {{#if category.faceted_search_enabled}}
+        <aside class="page-sidebar" id="faceted-search-container">
+            {{> components/category/sidebar}}
+        </aside>
+    {{else if category.subcategories}}
+        <aside class="page-sidebar" id="faceted-search-container">
+            {{> components/category/sidebar}}
+        </aside>
+    {{else if category.shop_by_price}}
+        {{#if theme_settings.shop_by_price_visibility}}
+             <aside class="page-sidebar" id="faceted-search-container">
+                {{> components/category/sidebar}}
+            </aside>
+        {{/if}}
+    {{/if}}
+
+
+
+
+    <div class="page-content" id="product-listing-container">
+
+        {{#each category.products}}
+            {{#each custom_fields}}
+                {{#any value '==' false name '!=' 'nonDTC'}}
+                    <div class="featured-products">
+
+                        {{> components/common/responsive-img
+                        image=../image
+                        class="featured-products__image"
+                        fallback_size=theme_settings.productgallery_size
+                        lazyload=theme_settings.lazyload_mode
+                        default_image=theme_settings.default_image_product
+                        }}
+
+                        <h3 class="featured-products__name">
+                            <a class="featured-products__name-link" href="#">{{../name}}</a>
+                        </h3>
+                        <div class="featured-products__rating">
+                            <span><img class="featured-products__icon" src="https://i.imgur.com/Qja7hEP.png"></span>
+
+                            <br><p  class="featured-products__price">
+                            {{../price.without_tax.formatted}}
+                        </p>
+                        </div>
+                    </div>
+                 {{/any}}
+            {{/each}}
+        {{/each}}
+
+        {{#each category.products}}
+            {{#each custom_fields}}
+                {{#any value '==' true name '==' 'nonDTC'}}
+                    <div class="featured-products">
+
+                        {{> components/common/responsive-img
+                        image=../image
+                        class="featured-products__image"
+                        fallback_size=theme_settings.productgallery_size
+                        lazyload=theme_settings.lazyload_mode
+                        default_image=theme_settings.default_image_product
+                        }}
+
+                        <h3 class="featured-products__name">
+                            <a class="featured-products__name-link" href="#">{{../url}}</a>
+                        </h3>
+                        <div class="featured-products__rating">
+                            <span><img class="featured-products__icon" src="https://i.imgur.com/Qja7hEP.png"></span>
+                        </div>
+                    </div>
+                {{/any}}
+            {{/each}}
+        {{/each}}
+
+        <div class="category__wrapper">
+            {{#each category.subcategories}}
+                <h2 class="featured-products__header">
+                    {{name}}
+                </h2>
+
+                {{#each ../category.products as |product key|}}
+                    {{#each product.category}}
+                        {{#if this '==' (concat 'Shop All/' ../../name)}}
+                            {{#filter product.custom_fields 'DTC' property= 'name'}}
+
+                            {{else}}
+                            <div class="single-product">
+                                <a href="{{product.url}}" title="{{product.name}}">
+                                    <img src="{{getImage product.image  'product_size'}}" alt="{{product.name}}">
+                                </a>
+                                <a href="{{product.url}}" title="{{product.name}}">
+                                    <h3>{{product.name}}</h3>
+                                </a>
+                                <div class="price-section mb10">
+                                    <p>${{product.price.without_tax.value}} CAD</p>
+                                    <span>Ships FREE</span>
+                                </div>
+                                <a href="{{product.url}}" class="single-product__btn">Shop Now</a>
+                            </div>
+                            {{/filter}}
+                        {{/if}}
+                    {{/each}}
+                {{/each}}
+            {{/each}}
+
+
+            {{> components/category/product-listing}}
+        </div>
+
+
+
+
+        {{{region name="category_below_content"}}}
+    </div>
+</div>
+
+{{/partial}}
+{{> layout/base}}

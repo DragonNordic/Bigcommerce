@@ -1,0 +1,15 @@
+<div class="form-field productView__custom-fields" data-product-attribute="set-select">
+    <label class="productView__custom-required" for="attribute_select_{{id}}">
+        <p>
+             <span class="productView__custom-size">{{ this.display_name }}:</span>
+             <span>{{> components/common/requireness-msg}}</span>
+        </p>
+    </label>
+
+    <select class="form-select form-select--small productView__custom-dropdown" name="attribute[{{this.id}}]" id="attribute_select_{{id}}" {{#if required}}required{{/if}}>
+        <option value="">{{lang 'products.choose_options'}}</option>
+        {{#each this.values}}
+            <option data-product-attribute-value="{{id}}" value="{{id}}" {{#if selected}}selected data-default{{/if}}>{{label}}</option>
+        {{/each}}
+    </select>
+</div>

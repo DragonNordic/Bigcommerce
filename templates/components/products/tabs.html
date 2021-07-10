@@ -1,0 +1,147 @@
+<h2 class="featured-products__header">
+    Related Products
+</h2>
+
+<div class="tabs-contents">
+
+    <div class="featured__adaptation">
+    {{#each product.related_products}}
+    <div class="featured-products" style="margin-left: -10px;">
+
+        {{> components/common/responsive-img
+        image=image
+        class="featured-products__image"
+        fallback_size=theme_settings.productgallery_size
+        lazyload=theme_settings.lazyload_mode
+        default_image=theme_settings.default_image_product
+        }}
+
+        <p class="featured-products__brand">
+            {{brand.name}}
+        </p>
+
+        <h3 class="featured-products__name">
+            <a class="featured-products__name-link" href="{{url}}">{{name}}</a>
+        </h3>
+        <div class="featured-products__rating">
+            <span><img class="rating__icon" src="https://i.imgur.com/pVrA95i.png"></span>
+            <span><img class="rating__icon" src="https://i.imgur.com/pVrA95i.png"></span>
+            <span><img class="rating__icon" src="https://i.imgur.com/pVrA95i.png"></span>
+            <span><img class="rating__icon" src="https://i.imgur.com/pVrA95i.png"></span>
+            <span><img class="rating__icon" src="https://i.imgur.com/pVrA95i.png"></span>
+
+            <br><p  class="featured-products__price">
+            {{price.without_tax.formatted}}
+        </p>
+        </div>
+    </div>
+    {{/each}}
+    </div>
+
+    <h2 class="featured-products__header">
+        Customers Also Viewed
+    </h2>
+    <div class="container">
+        <div class="slider" style="align-items: center"
+             data-slick='{
+
+        "mobileFirst": true,
+        "slidesToShow": 1,
+        "slidesToScroll": 1,
+        "dots": false,
+        "responsive": [
+            {
+                "breakpoint": 4000,
+                "settings": {
+                    "slidesToShow": 4,
+                    "slidesToScroll": 1
+                }
+            },
+            {
+                "breakpoint": 1150,
+                "settings": {
+                    "slidesToShow": 3,
+                    "slidesToScroll": 1
+                }
+            },
+            {
+                "breakpoint": 880,
+                "settings": {
+                    "slidesToShow": 2,
+                    "slidesToScroll": 1
+                }
+            },
+            {
+                "breakpoint": 668,
+                "settings": {
+                    "slidesToShow": 1,
+                    "slidesToScroll": 1
+                }
+            }
+        ]
+    }'>
+            {{#each product.related_products}}
+            <div class="featured-products" style="align-items: center;">
+
+                {{> components/common/responsive-img
+                image=image
+                class="featured-products__image"
+                fallback_size=theme_settings.productgallery_size
+                lazyload=theme_settings.lazyload_mode
+                default_image=theme_settings.default_image_product
+                }}
+
+                <p class="featured-products__brand">
+                    {{brand.name}}
+                </p>
+
+                <h3 class="featured-products__name">
+                    <a class="featured-products__name-link" href="{{url}}">{{name}}</a>
+                </h3>
+                <div class="featured-products__rating" style="margin-top: -20px;">
+                    <span><img class="featured-products__icon" src="https://i.imgur.com/Qja7hEP.png"></span>
+
+                    <br><p  class="featured-products__price" style="margin-top: -20px;">
+                    {{price.without_tax.formatted}}
+                </p>
+                </div>
+
+            </div>
+            {{/each}}
+            {{#each product.related_products}}
+            <div class="featured-products" style="align-items: center;">
+
+                {{> components/common/responsive-img
+                image=image
+                class="featured-products__image"
+                fallback_size=theme_settings.productgallery_size
+                lazyload=theme_settings.lazyload_mode
+                default_image=theme_settings.default_image_product
+                }}
+
+                <p class="featured-products__brand">
+                    {{brand.name}}
+                </p>
+
+                <h3 class="featured-products__name">
+                    <a class="featured-products__name-link" href="{{url}}">{{name}}</a>
+                </h3>
+                <div class="featured-products__rating">
+                    <span><img class="featured-products__icon" src="https://i.imgur.com/Qja7hEP.png"></span>
+
+                    <br><p  class="featured-products__price">
+                    {{price.without_tax.formatted}}
+                </p>
+                </div>
+
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+{{#if product.similar_by_views}}
+    <div role="tabpanel" aria-hidden="{{#if product.related_products}}true{{else}}false{{/if}}" class="tab-content has-jsContent{{#unless product.related_products}} is-active{{/unless}}" id="tab-similar">
+        {{> components/products/carousel products=product.similar_by_views columns=6 list="Customers Also Viewed"}}
+    </div>
+{{/if}}
+</div>

@@ -1,0 +1,45 @@
+{
+  "name": "Reverce Widget",
+  "template": "\n<div class=\"custom-widget__header\">\n    <h2 class=\"custom-widget__header-text\">\n        {{header}}\n    </h2>\n</div>\n<div class=\"custom-widget\">\n    <div class=\"custom-widget__logo\">\n        <img class=\"custom-widget__logo-image\" src=\"{{image.src}}\" alt=\"{{imageAlt}}\">\n    </div>\n    <div class=\"custom-widget__description\">\n        <h3 class=\"custom-widget__description-title\">\n            {{title}}\n        </h3>\n        <p class=\"custom-widget__description-text\">\n           {{text}}\n        </p>\n        <a class=\"custom-widget__description-link\" href=\"{{link}}\">\n            {{linkText}}\n        </a>\n    </div>\n</div>",
+  "schema": [
+    {
+      "label": "Design",
+      "type": "tab",
+      "sections": [
+        {
+          "label": "Image",
+          "settings": [
+            {
+              "id": "image",
+              "type": "imageManager",
+              "default": {
+                "src": "https://example.com/example.png",
+                "type": "IMAGE_MANAGER"
+              }
+            },
+            {
+              "id": "imageAlt",
+              "type": "input",
+              "default": "alt for image"
+            }
+          ]
+        },
+        {
+          "label": "Texts",
+          "settings": [
+            {
+              "id": "title",
+              "type": "input",
+              "default": "title"
+            },
+            {
+              "id": "description",
+              "type": "input",
+              "default": "description text"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

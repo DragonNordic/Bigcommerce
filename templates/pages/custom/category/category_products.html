@@ -1,0 +1,31 @@
+{{#partial "page"}}
+
+
+    {{> components/common/responsive-img
+    image=category.image
+    }}
+    <br>
+
+
+
+    <p>description: {{{category.description}}}</p>
+
+
+<div class="container">
+    {{#each category.products}}
+
+
+    {{> components/common/responsive-img
+    image=image
+    }}
+    <p>name: {{name}}</p>
+    <a href="{{url}}>" alt=""> See more </a>
+    <p>price: {{price.without_tax.formatted}}</p>
+</div>
+
+
+    {{/each}}
+
+{{/partial}}
+
+{{> layout/base}}

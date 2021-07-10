@@ -1,0 +1,381 @@
+<nav>
+    {{#if category.subcategories}}
+        <div class="sidebarBlock">
+            <h2 class="sidebarBlock-heading">{{category.name}}</h2>
+            <ul class="navList">
+                {{#each category.subcategories}}
+                <li class="navList-item">
+                    <a class="navList-action" href="{{url}}" title="{{name}}">{{name}}</a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    {{/if}}
+
+    {{#if category.faceted_search_enabled}}
+        {{> components/faceted-search/index category}}
+    {{else}}
+        {{> components/category/shop-by-price shop_by_price=category.shop_by_price category_url=category.url}}
+    {{/if}}
+
+    <aside class="page-sidebar category__header" id="faceted-search-container">
+        <nav>
+
+            <div id="facetedSearch" class="facetedSearch sidebarBlock">
+                <div class="facetedSearch-refineFilters sidebarBlock category__filter-block">
+                    <h2 class="sidebarBlock-heading category__filter-title">
+                        REFINE BY
+                    </h2>
+                </div>
+                <div class="facetedSearch-content category__filter-dropdown">
+
+                    <p style="margin: 10px 0 10px 10px;">No filters applied</p>
+
+                </div><!--.facetedSearch-content ends-->
+
+                <a href="#facetedSearch-navList" role="button" class="facetedSearch-toggle toggleLink" data-collapsible="" aria-label="Browse by Brand, Color &amp; more
+
+                Hide Filters
+
+                Show Filters" aria-controls="facetedSearch-navList" aria-expanded="false">
+                <span class="facetedSearch-toggle-text">
+                        Browse by Brand, Color &amp; more
+                </span>
+
+                            <span class="facetedSearch-toggle-indicator">
+                    <span class="toggleLink-text toggleLink-text--on">
+                        Hide Filters
+
+                        <i class="icon" aria-hidden="true">
+                            <svg><use xlink:href="#icon-keyboard-arrow-up"></use></svg>
+                        </i>
+                    </span>
+
+                    <span class="toggleLink-text toggleLink-text--off">
+                        Show Filters
+
+                        <i class="icon" aria-hidden="true">
+                            <svg><use xlink:href="#icon-keyboard-arrow-down"></use></svg>
+                        </i>
+                    </span>
+                </span>
+                </a>
+
+                <div id="facetedSearch-navList" class="facetedSearch-navList blocker-container" aria-hidden="true">
+                    <div class="accordion accordion--navList">
+                        <div class="accordion-block">
+                            <div class="accordion-nav-clear-holder" style="background-color: #5a5a5a;">
+                                <div class="accordion-navigation toggleLink category__filter-block" role="button" data-collapsible="#facetedSearch-content--brand" aria-label="Brand" aria-controls="facetedSearch-content--brand" aria-expanded="false">
+                                    <h5 class="accordion-title category__filter-title">
+                                        BRAND
+                                    </h5>
+
+                                    <div class="accordion-navigation-actions  category__filter-icon">
+                                        <svg class="icon accordion-indicator toggleLink-text toggleLink-text--off">
+                                            <use style="fill:#fff" xlink:href="#icon-add"></use>
+                                        </svg>
+                                        <svg class="icon accordion-indicator toggleLink-text toggleLink-text--on">
+                                            <use style="fill:#fff" xlink:href="#icon-remove"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="facetedSearch-content--brand" class="accordion-content category__filter-dropdown" aria-hidden="true">
+                                <ul id="facetedSearch-navList--brand" data-facet="brand" class="navList" data-has-more-results="false">
+                                    {{#each shop_by_brand}}
+                                    <li class="navList-item category__filter-element">
+                                        <a href="/new/?_bc_fsnf=1&amp;brand=38" class="navList-action navList-action--checkbox" rel="nofollow" data-faceted-search-facet="">
+                                            {{name}}
+                                            <span>{{count}}</span>
+
+                                            <span class="navList-action-close" aria-hidden="true">
+                                            <svg class="icon">
+                                                <use xlink:href="#icon-close"></use>
+                                            </svg>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="accordion-block">
+                            <div class="accordion-nav-clear-holder">
+                                <div class="accordion-navigation toggleLink category__filter-block" role="button" data-collapsible="#facetedSearch-content--color" aria-label="Color" aria-controls="facetedSearch-content--color" aria-expanded="false">
+                                    <h5 class="accordion-title category__filter-title">
+                                        COLOR
+                                    </h5>
+
+                                    <div class="accordion-navigation-actions category__filter-icon">
+                                        <svg class="icon accordion-indicator toggleLink-text toggleLink-text--off">
+                                            <use style="fill: #fff" xlink:href="#icon-add"></use>
+                                        </svg>
+                                        <svg class="icon accordion-indicator toggleLink-text toggleLink-text--on">
+                                            <use style="fill: #fff" xlink:href="#icon-remove"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="facetedSearch-content--color" class="accordion-content category__filter-dropdown" aria-hidden="true">
+                                <ul id="facetedSearch-navList--color" data-facet="Color" class="navList" data-has-more-results="false">
+                                    <li class="navList-item category__filter-element">
+                                        <a href="/new/?_bc_fsnf=1&amp;Color=Black" class="navList-action navList-action--checkbox" rel="nofollow" data-faceted-search-facet="">
+                                            Black
+                                            <span>(20)</span>
+
+                                            <span class="navList-action-close" aria-hidden="true">
+                                                <svg class="icon">
+                                                    <use xlink:href="#icon-close"></use>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="navList-item category__filter-element">
+                                        <a href="/new/?_bc_fsnf=1&amp;Color=Blue" class="navList-action navList-action--checkbox" rel="nofollow" data-faceted-search-facet="">
+                                            Blue
+                                            <span>(20)</span>
+
+                                            <span class="navList-action-close" aria-hidden="true">
+                                                <svg class="icon">
+                                                    <use xlink:href="#icon-close"></use>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="navList-item category__filter-element">
+                                        <a href="/new/?_bc_fsnf=1&amp;Color=Orange" class="navList-action navList-action--checkbox" rel="nofollow" data-faceted-search-facet="">
+                                            Orange
+                                            <span>(1)</span>
+
+                                            <span class="navList-action-close" aria-hidden="true">
+                                                <svg class="icon">
+                                                    <use xlink:href="#icon-close"></use>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="navList-item category__filter-element">
+                                        <a href="/new/?_bc_fsnf=1&amp;Color=Silver" class="navList-action navList-action--checkbox" rel="nofollow" data-faceted-search-facet="">
+                                            Silver
+                                            <span>(1)</span>
+
+                                            <span class="navList-action-close" aria-hidden="true">
+                                                <svg class="icon">
+                                                    <use xlink:href="#icon-close"></use>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="navList-item category__filter-element">
+                                        <a href="/new/?_bc_fsnf=1&amp;Color=White" class="navList-action navList-action--checkbox" rel="nofollow" data-faceted-search-facet="">
+                                            White
+                                            <span>(19)</span>
+
+                                            <span class="navList-action-close" aria-hidden="true">
+                                                <svg class="icon">
+                                                    <use xlink:href="#icon-close"></use>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+                        <div class="accordion-block">
+                            <div class="accordion-nav-clear-holder">
+                                <div class="accordion-navigation toggleLink category__filter-block" role="button" data-collapsible="#facetedSearch-content--size" aria-label="Size" aria-controls="facetedSearch-content--size" aria-expanded="false">
+                                    <h5 class="accordion-title category__filter-title">
+                                        SIZE
+                                    </h5>
+
+                                    <div class="accordion-navigation-actions category__filter-icon">
+                                        <svg class="icon accordion-indicator toggleLink-text toggleLink-text--off">
+                                            <use style="fill: #fff" xlink:href="#icon-add"></use>
+                                        </svg>
+                                        <svg class="icon accordion-indicator toggleLink-text toggleLink-text--on">
+                                            <use style="fill: #fff" xlink:href="#icon-remove"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="facetedSearch-content--size" class="accordion-content category__filter-dropdown" aria-hidden="true">
+                                <ul id="facetedSearch-navList--size" data-facet="Size" class="navList" data-has-more-results="false">
+                                    <li class="navList-item category__filter-element">
+                                        <a href="/new/?_bc_fsnf=1&amp;Size=Large" class="navList-action navList-action--checkbox" rel="nofollow" data-faceted-search-facet="">
+                                            Large
+                                            <span>(10)</span>
+
+                                            <span class="navList-action-close" aria-hidden="true">
+                                                <svg class="icon">
+                                                    <use xlink:href="#icon-close"></use>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="navList-item category__filter-element">
+                                        <a href="/new/?_bc_fsnf=1&amp;Size=Medium" class="navList-action navList-action--checkbox" rel="nofollow" data-faceted-search-facet="">
+                                            Medium
+                                            <span>(10)</span>
+
+                                            <span class="navList-action-close" aria-hidden="true">
+                                                <svg class="icon">
+                                                    <use xlink:href="#icon-close"></use>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="navList-item category__filter-element">
+                                        <a href="/new/?_bc_fsnf=1&amp;Size=Small" class="navList-action navList-action--checkbox" rel="nofollow" data-faceted-search-facet="">
+                                            Small
+                                            <span>(10)</span>
+
+                                            <span class="navList-action-close" aria-hidden="true">
+                                                <svg class="icon">
+                                                    <use xlink:href="#icon-close"></use>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+                        <div class="accordion-block">
+                            <div class="accordion-nav-clear-holder">
+                                <div class="accordion-navigation toggleLink category__filter-block" role="button" data-collapsible="#facetedSearch-content--price" aria-label="Price" aria-controls="facetedSearch-content--price" aria-expanded="false">
+                                    <h5 class="accordion-title category__filter-title">
+                                        PRICE
+                                    </h5>
+
+                                    <div class="accordion-navigation-actions category__filter-icon">
+                                        <svg class="icon accordion-indicator toggleLink-text toggleLink-text--off">
+                                            <use style="fill: #fff" xlink:href="#icon-add"></use>
+                                        </svg>
+                                        <svg class="icon accordion-indicator toggleLink-text toggleLink-text--on">
+                                            <use style="fill: #fff" xlink:href="#icon-remove"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="facetedSearch-content--price" class="accordion-content category__filter-dropdown" aria-hidden="true">
+                                <form id="facet-range-form" class="form category__filter-element" style="margin-bottom: 10px;" method="get" data-faceted-search-range="" novalidate="">
+                                    <input type="hidden" name="search_query" value="">
+                                    <fieldset class="form-fieldset">
+                                        <div class="form-minMaxRow">
+                                            <div class="form-field">
+                                                <input name="min_price" placeholder="Min." min="0" class="form-input form-input--small" required="" type="number" value="">
+                                            </div>
+
+                                            <div class="form-field">
+                                                <input name="max_price" placeholder="Max." min="0" class="form-input form-input--small" required="" type="number" value="">
+                                            </div>
+
+                                            <div class="form-field">
+                                                <button class="button button--small" type="submit">
+                                                    Update
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-inlineMessage"></div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="accordion-block">
+                            <div class="accordion-nav-clear-holder">
+                                <div class="accordion-navigation toggleLink category__filter-block" role="button" data-collapsible="#facetedSearch-content--rating" aria-label="Rating" aria-controls="facetedSearch-content--rating" aria-expanded="false">
+                                    <h5 class="accordion-title category__filter-title">
+                                        RATING
+                                    </h5>
+
+                                    <div class="accordion-navigation-actions category__filter-icon">
+                                        <svg class="icon accordion-indicator toggleLink-text toggleLink-text--off">
+                                            <use style="fill: #fff" xlink:href="#icon-add"></use>
+                                        </svg>
+                                        <svg class="icon accordion-indicator toggleLink-text toggleLink-text--on">
+                                            <use style="fill: #fff" xlink:href="#icon-remove"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="facetedSearch-content--rating" class="accordion-content facetedSearch-content--rating category__filter-dropdown" aria-hidden="true">                                <ul class="navList">                                    <li class="navList-item category__filter-element">                                        <a href="/new/?_bc_fsnf=1&amp;rating=1" class="navList-action" rel="nofollow" data-faceted-search-facet="">                        <span class="rating--small">                                    <span class="icon icon--ratingFull">            <svg>                <use xlink:href="#icon-star"></use>            </svg>        </span>        <span class="icon icon--ratingEmpty">            <svg>                <use xlink:href="#icon-star"></use>            </svg>        </span>        <span class="icon icon--ratingEmpty">            <svg>                <use xlink:href="#icon-star"></use>            </svg>        </span>        <span class="icon icon--ratingEmpty">            <svg>                <use xlink:href="#icon-star"></use>            </svg>        </span>        <span class="icon icon--ratingEmpty">            <svg>                <use xlink:href="#icon-star"></use>            </svg>        </span>                        </span>                                            &amp; up                                            <span>(1)</span>                                        </a>                                    </li>                                    <li class="navList-item category__filter-element">                                        <a href="/new/?_bc_fsnf=1&amp;rating=2" class="navList-action" rel="nofollow" data-faceted-search-facet="">                        <span class="rating--small">                                    <span class="icon icon--ratingFull">            <svg>                <use xlink:href="#icon-star"></use>            </svg>        </span>        <span class="icon icon--ratingFull">            <svg>                <use xlink:href="#icon-star"></use>            </svg>        </span>        <span class="icon icon--ratingEmpty">            <svg>                <use xlink:href="#icon-star"></use>            </svg>        </span>        <span class="icon icon--ratingEmpty">            <svg>                <use xlink:href="#icon-star"></use>            </svg>        </span>        <span class="icon icon--ratingEmpty">            <svg>                <use xlink:href="#icon-star"></use>            </svg>        </span>                        </span>                                            &amp; up                                            <span>(1)</span>                                        </a>                                    </li>                                    <li class="navList-item category__filter-element">                                        <a href="/new/?_bc_fsnf=1&amp;rating=3" class="navList-action" rel="nofollow" data-faceted-search-facet="">                        <span class="rating--small">                                    <span class="icon icon--ratingFull">            <svg>                <use xlink:href="#icon-star"></use>            </svg>        </span>        <span class="icon icon--ratingFull">            <svg>                <use xlink:href="#icon-star"></use>            </svg>        </span>        <span class="icon icon--ratingFull">            <svg>                <use xlink:href="#icon-star"></use>            </svg>        </span>        <span class="icon icon--ratingEmpty">            <svg>                <use xlink:href="#icon-star"></use>            </svg>        </span>        <span class="icon icon--ratingEmpty">            <svg>                <use xlink:href="#icon-star"></use>            </svg>        </span>                        </span>                                            &amp; up                                            <span>(1)</span>                                        </a>                                    </li>                                    <li class="navList-item category__filter-element">                                        <a href="/new/?_bc_fsnf=1&amp;rating=4" class="navList-action" rel="nofollow" data-faceted-search-facet="">                        <span class="rating--small">                                    <span class="icon icon--ratingFull">            <svg>                <use xlink:href="#icon-star"></use>            </svg>        </span>        <span class="icon icon--ratingFull">            <svg>                <use xlink:href="#icon-star"></use>            </svg>        </span>        <span class="icon icon--ratingFull">            <svg>                <use xlink:href="#icon-star"></use>            </svg>        </span>        <span class="icon icon--ratingFull">            <svg>                <use xlink:href="#icon-star"></use>            </svg>        </span>        <span class="icon icon--ratingEmpty">            <svg>                <use xlink:href="#icon-star"></use>            </svg>        </span>                        </span>                                            &amp; up                                            <span>(1)</span>                                        </a>                                    </li>                                </ul>                            </div>                        </div>
+
+                        <div class="accordion-block">
+                            <div class="accordion-nav-clear-holder">
+                                <div class="accordion-navigation toggleLink category__filter-block" role="button" data-collapsible="#facetedSearch-content--bool" aria-label="Other" aria-controls="facetedSearch-content--bool" aria-expanded="false">
+                                    <h5 class="accordion-title category__filter-title">
+                                        OTHER
+                                    </h5>
+
+                                    <div class="accordion-navigation-actions category__filter-icon">
+                                        <svg class="icon accordion-indicator toggleLink-text toggleLink-text--off">
+                                            <use style="fill: white" xlink:href="#icon-add"></use>
+                                        </svg>
+                                        <svg class="icon accordion-indicator toggleLink-text toggleLink-text--on">
+                                            <use style="fill: white" xlink:href="#icon-remove"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="facetedSearch-content--bool" class="accordion-content category__filter-dropdown" aria-hidden="true">
+                                <ul id="facetedSearch-navList--bool" data-facet="bool" class="navList" data-has-more-results="">
+                                    <li class="navList-item category__filter-element">
+                                        <a href="/new/?_bc_fsnf=1&amp;has_free_shipping=1" class="navList-action navList-action--checkbox" rel="nofollow" data-faceted-search-facet="">
+                                            Has Free Shipping
+                                            <span>(1)</span>
+
+                                            <span class="navList-action-close" aria-hidden="true">
+                                                <svg class="icon">
+                                                    <use xlink:href="#icon-close"></use>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="navList-item category__filter-element">
+                                        <a href="/new/?_bc_fsnf=1&amp;is_featured=1" class="navList-action navList-action--checkbox" rel="nofollow" data-faceted-search-facet="">
+                                            Is Featured
+                                            <span>(11)</span>
+
+                                            <span class="navList-action-close" aria-hidden="true">
+                                                <svg class="icon">
+                                                    <use xlink:href="#icon-close"></use>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="navList-item category__filter-element">
+                                        <a href="/new/?_bc_fsnf=1&amp;in_stock=1" class="navList-action navList-action--checkbox" rel="nofollow" data-faceted-search-facet="">
+                                            In Stock
+                                            <span>(17)</span>
+
+                                            <span class="navList-action-close" aria-hidden="true">
+                                                <svg class="icon">
+                                                    <use xlink:href="#icon-close"></use>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="blocker" style="display: none;"></div>
+                </div>
+            </div>
+        </nav>
+    </aside>
+</nav>

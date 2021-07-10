@@ -1,0 +1,130 @@
+{
+  "name": "Commerce Engine",
+  "template": "<div class=\"container\">\n    <div style=\"text-align: center;\">\n        <h2 style=\"text-align:{{header-align}}; font-size:{{header-font}}; font-family: 'Source Sans Pro', sans-serif; font-weight: 400; line-height: 2.25rem; color:{{header-color}};\">\n            {{header}}\n        </h2>\n    </div>\n    <div style=\"display: flex; flex-direction: row; text-align: left;\">\n        <div style=\"width: 90%; padding-top: 50px; margin-left: 75px;\">\n            <img style=\"box-sizing: initial; background-color: #fff; border-style: none; width:{{imageWidth}}; height:{{imageHeight}};\" src=\"{{image.src}}\" alt=\"{{imageAlt}}\">\n        </div>\n        <div style=\"max-height: 527px; max-width: 527px; text-align: left;\">\n            <h3 style=\"font-size:{{title-font}}; font-family: 'Source Sans Pro', sans-serif; font-weight: 400; line-height: 2.25rem; color:{{title-color}};\">\n                {{title}}\n            </h3>\n            <p style=\"font-size:{{text-font}}; font-family: 'Source Sans Pro', sans-serif; font-weight: 200; line-height: 1.75rem; color:{{text-color}};\">\n               {{text}}\n            </p>\n            <a style=\"color:{{link-color}}; font-size:{{link-font}}; font-family: 'Source Sans Pro', sans-serif; font-weight: 400; line-height: 1.75rem; text-decoration: none;\" href=\"{{link}}\">\n                {{linkText}}\n            </a>\n            <h3 style=\"font-size:{{title-font}}; font-family: 'Source Sans Pro', sans-serif; font-weight: 400; line-height: 2.25rem; color:{{title-color}};\">\n                {{title}}\n            </h3>\n            <p style=\"font-size:{{text-font}}; font-family: 'Source Sans Pro', sans-serif; font-weight: 200; line-height: 1.75rem; color:{{text-color}};\">\n                {{text}}\n            </p>\n            <a style=\"color:{{link-color}}; font-size:{{link-font}}; font-family: 'Source Sans Pro', sans-serif; font-weight: 400; line-height: 1.75rem; text-decoration: none;\" href=\"{{link}}\">\n                {{linkText}}\n            </a>\n            <h3 style=\"font-size:{{title-font}}; font-family: 'Source Sans Pro', sans-serif; font-weight: 400; line-height: 2.25rem; color:{{title-color}};\">\n                {{title}}\n            </h3>\n            <p style=\"font-size:{{text-font}}; font-family: 'Source Sans Pro', sans-serif; font-weight: 200; line-height: 1.75rem; color:{{text-color}};\">\n                {{text}}\n            </p>\n            <a style=\"color:{{link-color}}; font-size:{{link-font}}; font-family: 'Source Sans Pro', sans-serif; font-weight: 400; line-height: 1.75rem; text-decoration: none;\" href=\"{{link}}\">\n                {{linkText}}\n            </a>\n        </div>\n    </div>\n</div>",
+  "schema": [
+    {
+      "label": "Design",
+      "type": "tab",
+      "sections": [
+        {
+          "label": "Image",
+          "settings": [
+            {
+              "id": "image",
+              "type": "imageManager",
+              "default": {
+                "src": "https://example.com/example.png",
+                "type": "IMAGE_MANAGER"
+              }
+            },
+            {
+              "id": "imageAlt",
+              "type": "input",
+              "default": "alt for image"
+            },
+            {
+              "id": "imageWidth",
+              "type": "input",
+              "default": "580px"
+            },
+            {
+              "id": "imageHeight",
+              "type": "input",
+              "default": "640px"
+            }
+          ]
+        },
+        {
+          "label": "Header",
+          "settings": [
+            {
+              "id": "header",
+              "type": "input",
+              "default": "header text"
+            },
+            {
+              "id": "header-font",
+              "type": "input",
+              "default": "24px"
+            },
+            {
+              "id": "header-color",
+              "type": "input",
+              "default": "black"
+            },
+            {
+              "id": "header-align",
+              "type": "input",
+              "default": "center"
+            }
+          ]
+        },
+        {
+          "label": "Title",
+          "settings": [
+            {
+              "id": "title",
+              "type": "input",
+              "default": "title"
+            },
+            {
+              "id": "title-font",
+              "type": "input",
+              "default": "18px"
+            },
+            {
+              "id": "title-color",
+              "type": "input",
+              "default": "black"
+            }
+          ]
+        },
+        {
+          "label": "Content",
+          "settings": [
+            {
+              "id": "text",
+              "type": "input",
+              "default": "Content text"
+            },
+            {
+              "id": "text-font",
+              "type": "input",
+              "default": "15px"
+            },
+            {
+              "id": "text-color",
+              "type": "input",
+              "default": "#4c4b58"
+            }
+          ]
+        },
+        {
+          "label": "Link",
+          "settings": [
+            {
+              "id": "link",
+              "type": "input",
+              "default": "example/link"
+            },
+            {
+              "id": "linkText",
+              "type": "input",
+              "default": "link Text"
+            },
+            {
+              "id": "link-font",
+              "type": "input",
+              "default": "15px"
+            },
+            {
+              "id": "link-color",
+              "type": "input",
+              "default": "#4b71fc"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

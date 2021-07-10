@@ -1,0 +1,188 @@
+<div class="container">
+    <div class="productView" {{#if settings.data_tag_enabled}} data-event-type="product" data-entity-id="{{product.id}}" data-name="{{product.title}}" data-product-category="{{#each product.category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{product.brand.name}}" data-product-price="{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}" data-product-variant="single-product-option"{{/if}}>
+    {{#each product.reviews.messages}}
+    {{#if error}}
+    {{> components/common/alert/alert-error error}}
+    {{/if}}
+    {{#if success}}
+    {{> components/common/alert/alert-success success}}
+    {{/if}}
+    {{/each}}
+
+    <section class="productView-images my-productView-images" data-image-gallery>
+        {{!--
+        Note that these image sizes are coupled to image sizes used in /assets/js/theme/common/product-details.js
+        for variant/rule image replacement
+        --}}
+        {{#if product.images.length '>' 1 }}
+        {{> components/carousel-content-announcement}}
+        {{/if}}
+        <figure class="productView__custom-image"
+                data-image-gallery-main
+                {{#if product.main_image}}
+                data-zoom-image="{{getImageSrcset product.main_image (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size }}"
+                {{/if}}
+        >
+        <div class="productView-img-container">
+            {{!-- Remove the surrounding a-element if there is no main image. --}}
+            {{#if product.main_image}}
+            <a href="{{getImageSrcset product.main_image (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size}}"
+               target="_blank"{{#if schema}} itemprop="image"{{/if}}>
+            {{/if}}
+            {{> components/common/responsive-img
+            image=product.main_image
+            class="productView__custom-image"
+            fallback_size=theme_settings.product_size
+            lazyload=theme_settings.lazyload_mode
+            default_image=theme_settings.default_image_product
+            otherAttributes="data-main-image"
+            }}
+            {{!-- Remove the surrounding a-element if there is no main image. --}}
+            {{#if product.main_image}}
+            </a>
+            {{/if}}
+        </div>
+        </figure>
+        <ul class="productView__custom-images"{{#gt product.images.length 5}} data-slick='{
+                "infinite": false,
+                "mobileFirst": true,
+                "dots": false,
+                "accessibility": false,
+                "slidesToShow": 5,
+                "slidesToScroll": 5
+            }'{{/gt}}>
+        {{#each product.images}}
+        <li class="productView__custom-thumbnail">
+            <a
+                    class="productView-link"
+                    href="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}"
+                    data-image-gallery-item
+                    data-image-gallery-new-image-url="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.product_size}}"
+                    data-image-gallery-new-image-srcset="{{getImageSrcset this use_default_sizes=true}}"
+                    data-image-gallery-zoom-image-url="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}"
+            >
+                {{> components/common/responsive-img
+                image=this
+                class="productView__custom-link"
+                fallback_size=../theme_settings.productview_thumb_size
+                lazyload=../theme_settings.lazyload_mode
+                }}
+            </a>
+        </li>
+        {{/each}}
+        </ul>
+    </section>
+
+    <section class="productView-details product-data my-productView-details">
+        <div class="productView-product my-productView-product">
+            <img class="productView__custom-logo" src="https://cdn11.bigcommerce.com/s-sc5japrew7/stencil/c0d20250-9406-0139-2e7b-7a8cb522d851/e/f7183050-4d28-0139-7ded-0242ac11001a/img/smile/SmilePlansAssuranceLockup_DT.png" alt="smile-plans logo">
+
+            {{#if product.call_for_price}}
+            <p class="productView-price">
+                <span>{{product.call_for_price}}</span>
+            </p>
+            {{/if}}
+            <div class="productView-price">
+
+                {{> components/products/price price=price.non_sale_price_without_tax.formatted schema_org=schema}}
+
+                <h3 id="price" class="productView__custom-price">
+                <span>
+                    Annual plan - {{{product.price.without_tax.formatted}}}
+                </span>
+                </h3>
+                <p class="productView__custom-per-month">
+                    That's like paying <strong><span id="my-discount"> $7.92 per month!</span></strong>
+                </p>
+                <p class="productView__custom-pick">
+                    Pick your plan
+                </p>
+            </div>
+            {{{region name="product_below_price"}}}
+            <div class="productView-rating"{{#if product.num_reviews '>' 0}}{{#if schema}} itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating"{{/if}}{{/if}}>
+        </div>
+</div>
+</section>
+
+<section class="productView-details product-options productView__custom-details">
+    <div class="productView-options">
+
+        <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data"
+              data-cart-item-add>
+
+            <input type="hidden" name="product_id" value="{{product.id}}"/>
+
+            {{#if settings.show_wishlist}}
+            {{/if}}
+            <div id="add-to-cart-wrapper" class="add-to-cart-wrapper" {{#unless product.can_purchase}}style="display: none"{{/unless}}>
+
+
+            {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+            <div class="form-action my-form-action">
+
+                <select id="mySelect" class="my-form-select" onclick="selectorFunction()">
+                    <option class="productView__custom-option">
+                        6 months
+                    </option>
+                    <option selected class="productView__custom-option">
+                        12 months
+                    </option>
+                </select>
+                <input
+                        id="form-action-addToCart"
+                        data-wait-message="{{lang 'products.adding_to_cart'}}"
+                        class="button button--primary productView__custom-btn"
+                        type="submit"
+                        value="{{#if product.pre_order}}{{lang 'products.pre_order'}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}"
+                >
+                <span class="product-status-message aria-description--hidden">{{lang 'products.adding_to_cart'}} {{lang 'category.add_cart_announcement'}}</span>
+            </div>
+            {{/or}}
+    </div>
+    {{#if product.out_of_stock}}
+    {{#if product.out_of_stock_message}}
+    {{> components/common/alert/alert-error product.out_of_stock_message}}
+    {{else}}
+    {{> components/common/alert/alert-error (lang 'products.sold_out')}}
+    {{/if}}
+    {{/if}}
+    </form>
+    </div>
+    <div class="productView-price">
+    {{{product.description}}}
+    </div>
+    <div class="container">
+        {{#each product.related_products}}
+        {{#if price.without_tax.value '>' '100'}}
+
+        {{> components/common/responsive-img
+        image=image
+        }}
+        <p>name: {{name}}</p>
+        <a href="{{url}}>" alt=""> See more </a>
+        <p>price: {{price.without_tax.formatted}}</p>
+
+        {{/if}}
+        {{/each}}
+
+    </div>
+</section>
+<script>
+    function selectorFunction() {
+        var str_select = document.getElementById("mySelect");
+        var price = document.getElementById("price");
+        var discount = document.getElementById("my-discount");
+        if(str_select.value == "6 months")
+        {
+            price.innerHTML = "6 Month plan - $65.00";
+            discount.innerHTML = "$10.83 per month!";
+        }
+        else
+        {
+            price.innerHTML = "Annual plan - {{product.price.without_tax.formatted}}";
+            discount.innerHTML = "$7.92 per month!";
+        }
+    }
+</script>
+</div>
+</div>

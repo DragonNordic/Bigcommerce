@@ -1,0 +1,116 @@
+// =============================================================================
+// CATEGORY (CSS)
+// =============================================================================
+
+
+// Category header
+// -----------------------------------------------------------------------------
+
+.category {
+
+    &__sort-by {
+
+        float: right;
+        margin: -50px 40px -25px;
+        border-radius: 2px;
+
+        @media (max-width: 800px) {
+            margin: -20px 10px;
+            float: right;
+        }
+
+        &-item {
+            color: #476b70;
+        }
+
+        &-dropdown {
+            border-radius: 2px;
+        }
+    }
+
+    &__header {
+        @media (max-width: 650px) {
+            margin-top: 15%;
+        }
+
+        @media (max-width: 380px) {
+            margin-top: 25%;
+        }
+    }
+    
+    &__filter {
+        
+        &-title {
+                color: #fff;
+                font-weight: 600;
+                font-family: "Playfair Display";
+                text-transform: uppercase;
+                background: #5a5a5a;
+                margin-left: 10px;
+        }
+
+        &-block {
+            @media (min-width: 800px) {
+                width: 550%;
+                min-height: 40px;
+                padding: 10px;
+                background-color: #5a5a5a;
+                border: none;
+                border-radius: 1px;
+            }
+        }
+
+        &-icon {
+            @media (min-width: 800px) {
+                margin-right: 10px;
+            }
+        }
+        
+        &-dropdown {
+            @media (min-width: 800px) {
+                color: #313130;
+                background-color: #fff;
+                font-weight: 400;
+                font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+                border: 1px solid #e5e5e5;
+                margin-top: -12px;
+                width: 550%;
+            }
+        }
+
+        &-element {
+            @media (min-width: 800px) {
+                margin: 10px 0 10px 10px;
+            }
+        }
+        
+    }
+}
+
+.actionBar-section .form-field {
+    background-color: white;
+    border: 1px solid #dfdfdf;
+    border-radius: 1px;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.actionBar-section .form-label {
+    color: #757575;
+    font-size: 13px;
+    line-height: 2.14286rem;
+    margin-bottom: 0;
+    padding-left: 0.78571rem;
+    display: inline-block;
+}
+
+.actionBar-section .form-select {
+    color: #476b70;
+    height: 2.14286rem;
+    display: inline-block;
+}
+
+
+.category-header-image {
+    width: 100%;
+}

@@ -1,0 +1,366 @@
+// =============================================================================
+// FOOTER (CSS)
+// =============================================================================
+
+
+// Layout and columns
+// -----------------------------------------------------------------------------
+//
+// 1. To enable the grid's display: inline-block; to work properly, we need to
+//    remove the white-space that it creates between columns with font-size: 0;
+// 2. Re-set the font-size that was reduced to 0 in point 1 for children.
+//
+// -----------------------------------------------------------------------------
+
+.mobileFooterForm {
+
+    max-width: 1200px;
+    width: 100%;
+
+    @media (max-width: 650px) {
+        width: 100%;
+    }
+}
+
+
+.footer {
+    background-color: $footer-background;
+    border-top: container("border");
+    padding: spacing("double") 0;
+    position: relative;
+    min-height: 355px;
+
+    &__info {
+
+        min-width: 380px;
+
+        &-svg {
+            fill: white;
+            margin-right: 10px;
+        }
+    }
+
+    &__column {
+        max-width: 162px;
+    }
+
+    &__search {
+        margin-left: 10px;
+        max-width: 293px;
+
+        &-button {
+            color: #fff;
+            background-color: #9dc4a8;
+            text-transform: uppercase;
+            font-weight: 600;
+            border-radius: 2px;
+            font-family: "Playfair Display";
+            max-width: 141px;
+
+            &:hover {
+                color: black;
+                background-color: white;
+            }
+        }
+
+        &-form {
+            min-width: 293px;
+            min-height: 42px;
+            padding: 5px;
+            border-radius: 5px;
+            color: black;
+            font-family: "Source Sans Pro",Arial,Helvetica,sans-serif;
+            font-weight: 400;
+        }
+
+        .footer320 {
+            @media (max-width: 375px) {
+                display: none;
+            }
+        }
+    }
+
+    &__subscribe {
+
+        @media (max-width: 660px) {
+            width: 50%;
+        }
+    }
+
+    &__text {
+        color: white;
+        font-size: 14px;
+        font-family: "Source Sans Pro",Arial,Helvetica,sans-serif;
+        font-weight: 400;
+        margin: -10px 0 10px;
+        text-align: left;
+
+        @media (max-width: 548px) {
+            text-align: left;
+        }
+
+        &-info {
+            color: white;
+            font-size: 14px;
+            font-family: "Source Sans Pro",Arial,Helvetica,sans-serif;
+            font-weight: 400;
+            margin-bottom: 10px;
+
+            &:hover {
+                color: #9dc4a8;
+            }
+        }
+
+        &-slide {
+            color: white;
+            font-size: 14px;
+            font-family: "Source Sans Pro",Arial,Helvetica,sans-serif;
+            font-weight: 400;
+            margin-bottom: 10px;
+            transition: margin-left .3s ease-in-out;
+
+            &:hover {
+                color: #9dc4a8;
+                margin-left: 5px;
+            }
+        }
+    }
+
+    &__payment {
+        border: 1px solid white;
+        border-radius: 2px;
+        height: 30px;
+        margin: .35714rem;
+
+        width: 51px;
+        fill: white;
+        padding: 3px;
+
+        &-wrapper {
+            margin: -20px 0 0 285px;
+
+            @media (max-width: 1150px) {
+                margin: 0 auto;
+            }
+        }
+    }
+
+    &__hr {
+        margin-top: -15px;
+    }
+
+    &__social {
+        &-icon {
+            fill: white;
+
+            &:hover {
+                fill: #9dc4a8;
+            }
+        }
+
+        &-wrapper {
+            margin: -20px 0 0 320px;
+
+            @media (max-width: 1150px) {
+                margin: 0 auto;
+            }
+        }
+    }
+
+    &__bottom-wrapper {
+          vertical-align: center;
+          display: flex;
+          flex-direction: row;
+            margin-bottom: -30px;
+
+        @media (max-width: 1150px) {
+            flex-direction: column;
+        }
+      }
+}
+
+.footer-title-sr-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.footer-info {
+    @include grid-row($behavior: nest);
+    font-size: 0; // 1
+    background: #313130;
+}
+
+.footer-info-col {
+    @include grid-column(12);
+    color: stencilColor("color-textSecondary");
+    display: inline-block;
+    float: none;
+    font-size: fontSize("base"); // 2
+    margin-bottom: spacing("double");
+    vertical-align: top;
+    // TODO: specifically use vendor only for IE11 since overflow-wrap is not supported here 
+    -ms-word-break: break-all;
+    overflow-wrap: break-word;
+    @include breakpoint("small") {
+        text-align: left;
+        width: width("6/12");
+    }
+
+    @include breakpoint("medium") {
+        width: width("4/12");
+    }
+
+    > :first-child {
+        margin-top: 0;
+    }
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+.footer-info-col--small {
+    @include breakpoint("medium") {
+        width: width("2/12");
+    }
+}
+
+.footer-info-col--social {
+    width: 100%;
+}
+
+.footer-info-col--left {
+    @include breakpoint("small") {
+        padding: 0;
+    }
+}
+
+.footer-info-col--right {
+    @include breakpoint("small") {
+        left: 50%;
+        position: inherit;
+        width: 50%;
+    }
+
+    @include breakpoint("medium") {
+        left: 0;
+        padding: 0;
+        text-align: right;
+        width: 100%;
+    }
+}
+
+
+// Content
+// -----------------------------------------------------------------------------
+
+.footer-info-heading {
+    margin: 35px 0 1.5rem;
+    text-align: left;
+    font-weight: 600;
+    position: relative;
+    padding: .78571rem 0;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #fff;
+    font-family: "Playfair Display", serif;
+    letter-spacing: .15px;
+
+    &::after {
+        background-color: #fff;
+        content: "";
+        height: 1px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+    }
+
+}
+
+.footer-info-list {
+    list-style: none;
+    margin-left: 0;
+
+    a {
+        color: stencilColor("color-textSecondary");
+        text-decoration: none;
+
+        // scss-lint:disable NestingDepth
+        &:hover {
+            color: stencilColor("color-textSecondary--hover");
+        }
+        // scss-lint:enable NestingDepth
+    }
+}
+
+.footer-copyright {
+    text-align: center;
+
+    @include breakpoint("small") {
+        text-align: left;
+    }
+
+    > .powered-by {
+        color: stencilColor("color-textSecondary");
+        font-size: fontSize("tiny");
+        margin: 0;
+    }
+
+    > .paypal-credit {
+        color: stencilColor("color-textSecondary");
+        font-size: fontSize("tiny");
+        margin: 1em 0 2em;
+    }
+
+    a {
+        color: stencilColor("color-textSecondary");
+        text-decoration: none;
+
+        // scss-lint:disable NestingDepth
+        &:hover {
+            color: stencilColor("color-textSecondary--hover");
+        }
+        // scss-lint:enable NestingDepth
+    }
+}
+
+.footer-payment-icons {
+    height: remCalc(40);
+    margin-top: spacing("single");
+
+    @include breakpoint("medium") {
+        margin-top: spacing("double");
+    }
+
+    .footer-payment-icon {
+        height: 100%;
+        margin: spacing("quarter");
+        vertical-align: top;
+        width: remCalc(50);
+    }
+
+    svg {
+        fill: stencilColor("icon-color");
+    }
+}
+
+.footer-geotrust-ssl-seal {
+    @include breakpoint("small") {
+        bottom: 0;
+        position: absolute;
+        right: 16px;
+    }
+
+    table {
+        margin: auto;
+    }
+}
+
+.footer-newsletter-summary {
+    text-align: left;
+}

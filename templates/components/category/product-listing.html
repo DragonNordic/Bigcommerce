@@ -1,0 +1,60 @@
+{{inject 'noCompareMessage' (lang 'compare.no_compare')}}
+
+<!--{{#if category.products}}-->
+    {{> components/products/filter sort=pagination.category.sort}}
+
+    <div class="featured__adaptation">
+        {{#each category.products}}
+            <div class="featured-products" style="margin: 0 0 30px -10px;">
+
+                {{> components/common/responsive-img
+                image=image
+                class="featured-products__image"
+                fallback_size=theme_settings.productgallery_size
+                lazyload=theme_settings.lazyload_mode
+                default_image=theme_settings.default_image_product
+                }}
+
+                <p class="featured-products__brand">
+                    {{brand.name}}
+                </p>
+
+                <h3 class="featured-products__name">
+                    <a class="featured-products__name-link" href="{{url}}">{{name}}</a>
+                </h3>
+
+                <div class="featured-products__color">
+                    <span class="featured-products__color-white"></span>
+                    <span class="featured-products__color-black"></span>
+                    <span class="featured-products__color-blue"></span>
+                </div>
+
+                <div class="featured-products__rating">
+                    <span><img class="rating__icon" src="https://i.imgur.com/pVrA95i.png"></span>
+                    <span><img class="rating__icon" src="https://i.imgur.com/pVrA95i.png"></span>
+                    <span><img class="rating__icon" src="https://i.imgur.com/pVrA95i.png"></span>
+                    <span><img class="rating__icon" src="https://i.imgur.com/pVrA95i.png"></span>
+                    <span><img class="rating__icon" src="https://i.imgur.com/pVrA95i.png"></span>
+
+                    <br><p  class="featured-products__price">
+                    {{price.without_tax.formatted}}
+                </p>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+    {{> components/common/paginator pagination.category}}
+<!--{{else}}-->
+<!--    {{#if category.search_error}}-->
+<!--        <p>{{lang 'search.errorMessage'}}</p>-->
+<!--    {{else}}-->
+<!--        <p data-no-products-notification-->
+<!--           role="alert"-->
+<!--           aria-live="assertive"-->
+<!--           tabindex="-1"-->
+<!--        >-->
+<!--            {{lang 'categories.no_products'}}-->
+<!--        </p>-->
+<!--    {{/if}}-->
+<!--{{/if}}-->

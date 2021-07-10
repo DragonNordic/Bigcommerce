@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,600;1,700&display=swap');
+
+.hero-template {
+  background-image: url("../../assets/img/template/intro-bg.jpg");
+  width: 100%;
+  height: 100%;
+  min-height: 720px;
+  text-align: center;
+  background-attachment: fixed;
+  background-size: 100%;
+  display: block;
+
+  &__title {
+    color: #cc005f;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    padding-top: 20%;
+    width: center;
+    margin: 0;
+    min-width: 250px;
+  }
+
+  &__name {
+    color: #FFFFFF;
+    font-family: "poppins-medium", sans-serif;
+    font-size: 5.4rem;
+    max-width: 900px;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+
+  &__description {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    line-height: 2.4rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    color: #FFFFFF;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  }
+
+  &__button {
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.3);
+    height: 3.5rem;
+    line-height: 3.4rem;
+    border: 3px solid #313131;
+    padding: 0 1.5rem 0 1rem;
+    margin-top: .6rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: .25rem;
+    display: inline-block;
+    font-family: "poppins", sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+      border-color: #cc005f;
+    }
+  }
+}
+
+
+.about {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-bottom: 3.6rem;
+
+  &__title {
+    color: #FF0077;
+    font-family: "poppins", sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    line-height: 1.6;
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    padding-top: 20%;
+    width: center;
+    margin: 0;
+    min-width: 250px;
+  }
+
+  &__header {
+    color: #313131;
+    font-family: "poppins", sans-serif;
+    font-size: 1.9rem;
+    font-weight: bold;
+    max-width: 900px;
+    margin: 0 0 1.25rem;
+  }
+
+  &__image {
+    height: 6.5rem;
+    width: 6.5rem;
+    border-radius: 50%;
+    margin-top: 1rem;
+    margin-right: 2rem;
+    float: left;
+  }
+}
+
+
+.city__content {
+  font-family: "lora", serif;
+  font-size: 1.3rem;
+  text-align: left;
+  margin-left: 15px;
+  line-height: 1.8;
+  color: #888888;
+  width: 100%;
+  height: 100%;
+  max-width: 55rem;
+  max-height: 60rem;
+  padding-bottom: 20%;
+}
+
+
+.contact {
+  background: #151515;
+  padding-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  &__title {
+    color: #FF0077;
+    font-family: "poppins", sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    line-height: 1.6;
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    margin: 0;
+    min-width: 250px;
+    padding-top: 5%;
+  }
+
+  &__header {
+    color: #ffffff;
+    width: center;
+    font-family: "poppins", sans-serif;
+    font-size: 1.9rem;
+    font-weight: bold;
+    max-width: 900px;
+    margin: 0 0 1.25rem 10rem;
+  }
+
+  &__content {
+    font-family: "lora", serif;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #888888;
+    max-width: 43rem;
+    max-height: 60rem;
+    padding-bottom: 10%;
+    margin-left: 23%;
+  }
+
+  &__info {
+    max-width: 1400px;
+    max-height: 720px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10px, 0.5fr));
+    grid-gap: 5px;
+    margin: 0;
+  }
+
+  &__icon {
+    max-height: 40px;
+    max-width: 40px;
+  }
+
+  &__card-content {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    line-height: 1.75rem;
+    color: #6e6e6e;
+  }
+}
+
+
+.contact__card-content {
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  line-height: 1.75rem;
+  color: #6e6e6e;
+}
